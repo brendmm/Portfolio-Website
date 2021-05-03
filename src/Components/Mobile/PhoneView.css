@@ -1,0 +1,16 @@
+@keyframes scrollUp {
+    from {
+        top: 100vh;
+    }
+    to {
+        top: 15vh;
+    }
+}
+@keyframes scrollDown {
+    from {
+        top: 15vh;
+    }
+    to {
+        top: 100vh;
+    }
+}

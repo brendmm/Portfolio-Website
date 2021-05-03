@@ -1,0 +1,164 @@
+.btn1 span1 {
+        position: absolute;
+        border-radius: 50%;
+        width:100px;
+        height: 100px;
+        margin-top: -100px;
+        margin-left: -50px;
+
+        animation: ripple 1.0s;
+        opacity: 0;
+    }
+
+@keyframes ripple {
+        from {
+            opacity: 1;
+            transform: scale(0);
+        }
+
+        to {
+            transform: scale(3);
+        }
+    }
+
+.btnSlide {
+	 display: inline-block;
+	 /* padding: 0.75rem 1.25rem; */
+	 color: #fff;
+	 transition: all 0.3s;
+	 position: relative;
+	 overflow: hidden;
+	 z-index: 1;
+	 /* background-color: var(--thirdColor); */
+	 border-radius: 10px;
+
+}
+
+.btnSlide:after {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+	 background-color: rgba(40, 44, 52, 0.6);
+	 border-radius: 10px;
+	 z-index: -2;
+}
+ .btnSlide:before {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 0%;
+	 height: 100%;
+	 background-color: var(--secondColor);
+	 opacity: 0.5;
+	 transition: all 0.3s;
+	 border-radius: 10px;
+	 z-index: -1;
+}
+ .btnSlide:hover {
+	 color: #fff;
+}
+ .btnSlide:hover:before {
+	 width: 100%;
+}
+
+.btnSlide spanTemp {
+	position: absolute;
+	border-radius: 10px;
+
+		top:0;
+			width:100%;
+			height: 100%;
+			left:-100%;
+		background-color: var(--secondColor) - #202020;
+			animation: slide 0.5s;
+		animation-fill-mode: forwards;
+}
+
+.btnSlide spanTemp1 {
+	position: absolute;
+	border-radius: 10px;
+	top:0;
+	width:100%;
+	height: 100%;
+	left:-100%;
+	background-color: var(--secondColor);
+	animation: slide 0.5s;
+	animation-fill-mode: forwards;
+    }
+
+@keyframes slide {
+		from {left:-100%;}
+        to {left: 0%;}
+    }
+
+.btn2 span3 {
+        position: absolute;
+        border-radius: 10px;
+        width:100px;
+        height: 100px;
+        margin-top: -100px;
+        margin-left: -50px;
+        animation: directionIn 1.5s;
+				animation-fill-mode: forwards;
+    }
+
+@keyframes directionIn {
+        from {
+            transform: scale(0);
+        }
+
+        to {
+            transform: scale(10);
+        }
+    }
+
+.btn2 span4 {
+        position: absolute;
+        border-radius: 50%;
+        width:100px;
+        height: 100px;
+        margin-top: -100px;
+        margin-left: -50px;
+
+        animation: directionOut 1.5s;
+				animation-fill-mode: forwards;
+    }
+
+@keyframes directionOut {
+        from {
+            opacity: 1;
+            transform: scale(0);
+        }
+
+        to {
+            transform: scale(10);
+        }
+    }
+
+.btn span5 {
+        position: absolute;
+        border-radius: 50%;
+        width:100px;
+        height: 100px;
+        margin-top: -100px;
+        margin-left: -50px;
+
+        animation: directionOut 1.3s;
+		animation-fill-mode: forwards;
+
+    }
+
+@keyframes directionOut {
+        from {
+            opacity: 1;
+            transform: scale(0);
+        }
+
+        to {
+            transform: scale(10);
+        }
+    }

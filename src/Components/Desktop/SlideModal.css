@@ -1,0 +1,11 @@
+@keyframes slideModal {
+	    from {top:-15vh}
+			to {top:3vw}
+    }
+@keyframes closeSlideModal {
+	    from {top:3vh}
+			to {top:-15vw}
+    }
+.SlideModal{
+	animation-fill-mode: forwards;
+}

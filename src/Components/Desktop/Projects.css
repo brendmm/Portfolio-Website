@@ -1,0 +1,68 @@
+@keyframes SlideLeft{
+  from {
+    width:80%;
+    margin-left: 20%
+  }
+  to {
+    width:100%;
+    margin-left: 0%;
+  }
+}
+@keyframes SlideRight{
+  from {
+    width:100%;
+    margin-left: 0%;
+  }
+  to {
+    width:80%;
+    margin-left: 20%;
+  }
+}
+@keyframes SlideRightHalf {
+  from {
+    width:50%;
+    margin-left: 0%;
+  }
+  to {
+    width:80%;
+    margin-left: 20%;
+  }
+}
+@keyframes SlideHalf{
+  from {
+    width:100%;
+  }
+  to {
+    width:50%;
+  }
+}
+
+@keyframes SlideFull{
+  from {
+    width:50%;
+  }
+  to {
+    width:100%;
+  }
+}
+@keyframes Slide80100{
+  from {
+    width:80%;
+    margin-left: 20%;
+  }
+  to {
+    width:100%;
+    margin-left: 0%;
+  }
+}
+@keyframes Slide8050{
+  from {
+    width:80%;
+    margin-left: 20%;
+
+  }
+  to {
+    width:50%;
+    margin-left: 0%;
+  }
+}

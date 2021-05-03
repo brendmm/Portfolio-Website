@@ -1,0 +1,111 @@
+.panelContainer{
+    top:11vh;
+    bottom:0;
+    left:0;
+    right:0;
+    position:sticky;
+    z-index: 0;
+}
+
+.sidePanel{
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+  background-color:var(--secondColor);
+  color:var(--firstColor);
+  position: absolute;
+  bottom:0;
+  top:0;
+  /* overflow: hidden; */
+  /* zIndex: 3; */
+  height: 100vh;
+  width:0%;
+  /* padding-top: 5vh; */
+}
+
+@keyframes slideAboutClosed {
+      from {
+          width:50%;
+      }
+      to {
+          width:0%;
+      }
+}
+
+@keyframes slideProjectsClosed {
+      from {
+          width:20%;
+      }
+      to {
+          width:0%;
+      }
+}
+
+@keyframes slideAbout {
+      from {
+          width:0%;
+      }
+      to {
+          width:50%;
+      }
+}
+
+@keyframes slideProjects {
+      from {
+          width:0%;
+      }
+      to {
+          width:20%;
+      }
+}
+
+@keyframes RightToLeft {
+      0% {
+          width:50%;
+          z-index:2;
+      }
+      50% {
+        width:100%;
+        z-index:4;
+      }
+      100% {
+          width:20%;
+          z-index:2;
+      }
+}
+
+@keyframes LeftToRight {
+      0% {
+          width:20%;
+          z-index:2;
+      }
+      50% {
+        width:100%;
+        z-index:4;
+      }
+      100% {
+          width:50%;
+          z-index:2;
+      }
+}
+
+@keyframes hoverProject {
+    0% {
+        margin-left: 0vw;
+        font-size: 1em;
+    }
+    100% {
+        margin-left: 1vw;
+        /* font-size: 1.2em; */
+    }
+}
+
+@keyframes hoverOffProject {
+    0% {
+        margin-left: 1vw;
+        /* font-size: 1.2em; */
+    }
+    100% {
+        margin-left: 0vw;
+        font-size: 1em;
+    }
+}
