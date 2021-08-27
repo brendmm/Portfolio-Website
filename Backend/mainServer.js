@@ -13,5 +13,6 @@ const publicRoutes = require('./routes.js')
 app.use('/backend', publicRoutes);
 //listen for request on port 3000, and as a callback function have the port listened on logged
 app.listen(port, () => {
-  console.log(`Server running on port: ${port}`);
+  console.log(`Server started on port: ${port}`);
+  console.log(`Started at ${new Date().toUTCString()}`);
 });
