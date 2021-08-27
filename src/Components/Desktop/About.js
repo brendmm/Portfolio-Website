@@ -49,11 +49,11 @@ class Resume extends Component {
                       <span style={{float:"left"}}>
                         <img src={Phone} alt="Phone" width="45" height="45"/>
                       </span>
-                      <div>
-                        <div style={{float:"left",  marginLeft:"1%", marginRight:'1%', fontSize:'2em'}}>
+                      <div style={{display:'flex', flexDirection:'row', position:'relative',marginTop:'1vh'}}>
+                        <div style={{float:"left",  marginLeft:"1%", fontSize:'2em',flex:'3',position:'absolute',top:'50%',transform:'translateY(-50%)'}}>
                           Phone:
                         </div>
-                        <div style={{fontSize:'1.5em', fontWeight:'3px', paddingTop:'1.5vh'}}>
+                        <div style={{fontSize:'1.5em', fontWeight:'3px',flex:'5',paddingLeft:'35%',}}>
                           978-270-4538
                         </div>
                       </div>
@@ -63,11 +63,11 @@ class Resume extends Component {
                       <span style={{float:"left"}}>
                         <img src={Email} alt="Phone" width="45" height="45"/>
                       </span>
-                      <div>
-                        <div style={{float:floatVal,  marginLeft:"1%", marginRight:'1%', fontSize:'2em'}}>
+                      <div style={{display:'flex', flexDirection:'row', position:'relative',marginTop:'1vh'}}>
+                        <div style={{float:floatVal,  marginLeft:"1%", fontSize:'2em',flex:'3',position:'absolute',top:'50%',transform:'translateY(-50%)'}}>
                           Email:
                         </div>
-                        <a href='mailto:bmuldown@gmail.com' style={{color:colorScheme.third,textDecoration:'none',display:'block',fontSize:'1.5em', fontWeight:'3px', paddingTop:'1.5vh'}}>
+                        <a href='mailto:bmuldown@gmail.com' style={{paddingLeft:'30%',color:colorScheme.third,flex:'1',textDecoration:'none',fontSize:'1.5em', fontWeight:'3px'}}>
                           bmuldow@gmail.com
                         </a>
                       </div>

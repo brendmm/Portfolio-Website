@@ -26,7 +26,7 @@ export default class TrackBar extends React.Component {
   render() {
               return (
                 <div  className = "trackbar"style={{width:'100%',height:'1vh',zIndex:'5',position:'sticky',top:'10%',backgroundColor:colorScheme.third}}>
-                  <div style={{width:this.state.progressWidth.toString()+'%',height:'100%',zIndex:'5',backgroundColor:colorScheme.fourth}}>
+                  <div style={{width:this.state.progressWidth.toString()+'%',height:'100%',zIndex:'5',backgroundColor:colorScheme.fourth,borderRadius:'0px 5px 5px 0px'}}>
                   </div>
                 </div>
               );

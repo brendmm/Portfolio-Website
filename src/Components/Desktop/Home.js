@@ -20,7 +20,6 @@ const centering = {
   position:'absolute',
   width:'100%'
 }
-
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -153,13 +152,13 @@ export default class Home extends React.Component {
     else if(id===2){
       let btn = document.querySelector(".btn2");
       let inner = document.querySelector(".inner2");
-      inner.style.color=colorScheme.third
+      inner.style.color=colorScheme.first
 
       let ripple = document.createElement("span4");
       ripple.classList.add("ripple");
       let x = e.screenX - btn.getBoundingClientRect().left;
       let y = e.screenY - btn.getBoundingClientRect().top;
-      ripple.style.background = colorScheme.first
+      ripple.style.background = colorScheme.fourth
       ripple.style.left = `${x}px`;
       ripple.style.top = `${y}px`;
       btn.appendChild(ripple);
@@ -210,7 +209,7 @@ export default class Home extends React.Component {
   }
 
   moveProjects = () => {
-    this.props.getStarted()
+    this.props.getStarted(0)
   }
 
   processPage = () => {
@@ -261,37 +260,36 @@ export default class Home extends React.Component {
 
   }
 
-about2 = () => {
-  let about1 = document.querySelector(".about1")
-  let about2 = document.querySelector(".about2")
-  if(about2.clientWidth < window.innerWidth * 0.25){
-    about1.style.animation = "shrinkAbout2 0.5s"
-    about2.style.animation = "growAbout2 0.5s"
-    about2.style.animationFillMode = "forwards";
-    about1.style.animationFillMode = "forwards"
-  }
-else{
-  about2.style.animation = "shrinkAbout2 0.5s"
-  about1.style.animation = "growAbout2 0.5s"
-  about2.style.animationFillMode = "forwards";
-  about1.style.animationFillMode = "forwards"
-}
-}
+// about2 = () => {
+//   let about1 = document.querySelector(".about1")
+//   let about2 = document.querySelector(".about2")
+//   if(about2.clientWidth < window.innerWidth * 0.25){
+//     about1.style.animation = "shrinkAbout2 0.5s"
+//     about2.style.animation = "growAbout2 0.5s"
+//     about2.style.animationFillMode = "forwards";
+//     about1.style.animationFillMode = "forwards"
+//   }
+// else{
+//   about2.style.animation = "shrinkAbout2 0.5s"
+//   about1.style.animation = "growAbout2 0.5s"
+//   about2.style.animationFillMode = "forwards";
+//   about1.style.animationFillMode = "forwards"
+// }
+// }
   render() {
-    let margin = this.state.width / 10
     let imgSize = (this.state.width / 5).toString()
       return (
         <div className="HomeSection" style={{width:'100%',height:'90vh',position:'relative',color:colorScheme.second, overflow:'hidden'}} >
-        <img className="Profile" src={Profile} alt='placeholder' width={imgSize} height={imgSize} style={{ position:'absolute',left:'50%',top:'50%', transform: 'translate(-50%, -50%)'}}/>
+        <img className="Profile" src={Profile}  alt='placeholder' width={imgSize} height={imgSize} style={{ zIndex:'4', position:'absolute',left:'50%',top:'50%', transform: 'translate(-50%, -50%)'}}/>
           <div style={{height:'90vh',overflow:'hidden'}}>
               <div className="HomeHeader"style={{ animationFillMode:'forwards',display:'inline-block',float:'left'}}>
                 <div style={{display:'flex',height:'90vh'}}>
                 <div style={this.state.pageStyle} className="Intro">
-                <div style={{marginTop:'10vw', fontSize: '3em',textAlign:'left',marginLeft:'10%',marginRight:'20%',color:colorScheme.fourth, fontWeight: 'bold'}}>
+                <div style={{marginTop:'6vw', fontSize: '4em',textAlign:'left',marginLeft:'10%',marginRight:'20%',color:colorScheme.fourth, fontWeight: 'bold'}}>
                 Welcome to my virtual portfolio
                 </div>
                 {this.state.width > 760 ?
-                <div className="subHeader" style={{marginTop:'5vh',fontSize: '1.2em',textAlign:'left',marginLeft:'10%',marginRight:'20%',color:colorScheme.third}}>
+                <div className="subHeader" style={{marginTop:'5vh',fontSize: '2em',textAlign:'left',marginLeft:'10%',marginRight:'20%',color:colorScheme.third}}>
                 {
                   this.state.beforeString
                 }
@@ -301,14 +299,21 @@ else{
                 </div>
               </div>
 
-              <div className = 'AboutSection' style={{width:'0%',display:'inline-block',zIndex:'3',color:colorScheme.first,overflow:'hidden',position:'relative'}} onClick={()=>this.about2()}>
+              <div className = 'AboutSection' style={{width:'0%',display:'inline-block',zIndex:'3',color:colorScheme.first,overflow:'hidden',position:'relative'}} >
 
-                <div className="about1" style={{marginLeft:'10vw',float:'left',display:'inline-block',height:'50vh',marginTop:'10vw', textAlign:'left',position: "relative",left:'0',width:'30vw',overflow:'hidden'}}>
+                <div className="about1" style={{marginLeft:'10vw',float:'left',display:'inline-block',height:'70vh',marginTop:'6vw', textAlign:'left',position: "relative",left:'0',width:'30vw',overflow:'hidden'}}>
                   <div style={{ fontSize:'2.2em'}}>
-                    My name is Brendan. <br/> I'm a software developer.
+                    Hi I'm Brendan. <br/> I'm a software developer.
                   </div>
                   <div style={{marginTop:'7vh',fontSize: '1.2em'}}>
-                    I'm a Magna Cum Laude graduate from Virginia Tech with a degree in computer engineering
+                    I'm a Magna Cum Laude graduate from Virginia Tech with a degree in computer engineering.
+                    <br/><br/>
+                    Through my studies and within the classroom and outside of it, I've taken an interest in software engineering. 
+                    <br/><br/>
+                    Engineering, to me, is a balance of objective problems and subjective approaches.  
+                    With software, I am able to watch my ideas take flight in front of me as I build systems from the ground up.
+                    <br/><br/>
+                    My main interests are in robotics and application design. These fields allow me to have a unique style while providing challenging problems to further my knowledge
                   </div>
                 </div>
 {/*
@@ -344,7 +349,7 @@ else{
                 {/*About Me*/}
                 <div className="AboutMe" style={{width:'200px',height:'50px',borderRadius:'5px',display:'inline-block',marginLeft:'4vw'}} onClick={() => this.activatePanel()} >
                   <div className='btn2'
-                    style={{...mainStyle, color: colorScheme.third,borderRadius:'10px',border:colorScheme.third+' 2px solid',background:colorScheme.first,fontSize:'1.2em'}}
+                    style={{...mainStyle, color: colorScheme.first,borderRadius:'10px',border:colorScheme.third+' 2px solid',background:colorScheme.fourth,fontSize:'1.2em'}}
                       onMouseEnter={this.directionIn.bind(this, 2)} onMouseLeave={this.directionOut.bind(this, 2)}>
                     <div className='inner2' style={{ ...centering}}>
                       About Me

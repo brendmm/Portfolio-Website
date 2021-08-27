@@ -20,7 +20,6 @@ import About from "./Components/Desktop/About.js"
 import Gallery from "./Components/Desktop/Gallery.js"
 import TrackBar from "./Components/Desktop/TrackBar.js"
 import PhoneView from "./Components/Mobile/PhoneView.js"
-
 const cookies = new Cookies();
 
 export default class App extends React.Component {
@@ -39,8 +38,10 @@ export default class App extends React.Component {
       currentPage: '',
       prevPage: '',
       aboutActivated: false,
-      projectSelection:null,
-      appHeight:0
+      projectSelection:0,
+      gitLink:'https://github.com/abbym1/ECE4534_T8',
+      appHeight:0,
+      projectLock: this.registerLock
     };
     this.homeRef = React.createRef()
     this.aboutRef = React.createRef()
@@ -55,10 +56,10 @@ export default class App extends React.Component {
     let app = document.querySelector(".App")
     let img = cookies.get("img")
     if(img === undefined){
-      axios.get(`http://10.0.0.118:5000/backend/background`).then(res => {
+      axios.get(`https://whispering-fjord-93482.herokuapp.com/backend/background`).then(res => {
           this.setState({img:res.data,heart:HeartWhite, appHeight:app.clientHeight,bottom:document.querySelector(".AboutPage").clientHeight})
         }).catch((error) => {
-                console.log(error)
+                console.error(error)
         });
     }
     else{
@@ -99,13 +100,22 @@ export default class App extends React.Component {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
   handleScroll = (e) => {
+    let app = document.querySelector(".App")
     this.determinePage()
     if(this.state.width>760){
     let navbar = document.querySelector(".Menu")
     let top = navbar.getBoundingClientRect().top
     let goal = this.state.height*0.05
     if(((top + 1) > goal) && ((top - 1) < goal) && !this.state.locked) {
-      this.setState({locked:true})
+      let img = cookies.get("img")
+      if(img === undefined){
+        axios.get(`https://whispering-fjord-93482.herokuapp.com/backend/background`).then(res => {
+          this.state.img = res.data
+        }).catch((error) => {
+                  console.error(error)
+          });
+      }
+      this.setState({locked:true,appHeight:app.clientHeight})
       let base = document.querySelector(".Background-Base")
       base.style.animation = "fade-color 0.5s"
       base.style.animationFillMode = "forwards";
@@ -125,7 +135,7 @@ export default class App extends React.Component {
       }
     }
     if(((top - 1) > goal) && this.state.locked) {
-      this.setState({locked:false})
+      this.setState({locked:false,appHeight:app.clientHeight})
       let base = document.querySelector(".Background-Base")
       base.style.animation = "fade-out 0.5s"
       let logo = document.querySelector("#Logo");
@@ -149,18 +159,18 @@ export default class App extends React.Component {
     let temp = (this.state.panelState !== 'projectsFromLeft') || (this.state.panelState !== 'projectsFromRight')
     if(((top2 + 1) > goal) && ((top2 - 1) < goal) && temp){
       if(this.state.panelState==='about'){
-        this.setState({tempPanelState: this.state.panelState, panelState:'projectsFromRight'})
+        this.setState({tempPanelState: this.state.panelState, panelState:'projectsFromRight',appHeight:app.clientHeight})
       }
       else{
-        this.setState({tempPanelState: this.state.panelState, panelState:'projectsFromLeft'})
+        this.setState({tempPanelState: this.state.panelState, panelState:'projectsFromLeft',appHeight:app.clientHeight})
       }
     }
     else if(((top2 + 1) > goal) && ((top2 - 1) < goal) && !temp){
       if(this.state.panelState==='projectsFromRight'){
-        this.setState({tempPanelState: this.state.panelState, panelState:'about'})
+        this.setState({tempPanelState: this.state.panelState, panelState:'about',appHeight:app.clientHeight})
       }
       else{
-        this.setState({tempPanelState: this.state.panelState, panelState:'closedProjects'})
+        this.setState({tempPanelState: this.state.panelState, panelState:'closedProjects',appHeight:app.clientHeight})
       }
     }
 
@@ -219,9 +229,8 @@ export default class App extends React.Component {
     }
   }
   }
-
   shuffleBackground=async ()=>{
-    await axios.get(`http://10.0.0.118:5000/backend/background`).then(res => {
+    await axios.get(`https://whispering-fjord-93482.herokuapp.com/backend/background`).then(res => {
         let item = document.querySelector('.Icon-Image-Shuffle')
         this.setState({img:res.data})
         this.setState({heart:HeartWhite})
@@ -302,16 +311,17 @@ export default class App extends React.Component {
       this.setState({prevPage:this.state.currentPage,currentPage:bestName})
     }
   }
-  selectProject = (id) => {
+  selectProject = (id,gitLink) => {
     if(this.state.projectSelection!==id){
-      this.setState({projectSelection:id})
+      this.setState({projectSelection:id,gitLink:gitLink})
     }
   }
-
   getStarted = () => {
     this.selection("Projects")
   }
-
+  registerLock = (registerLock) => {
+    this.setState({projectLock: registerLock})
+  }
   render() {
     if(this.state.img === 0){
       return (
@@ -323,7 +333,7 @@ export default class App extends React.Component {
     else{
       let topCenterWidth = (this.state.width*0.86) - 350
       return (
-        <div>
+        <div className="SlideContainer">
         <div className="App" style={{backgroundColor:colorScheme.first,color:colorScheme.first}}>
 
         <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet"></link>
@@ -521,16 +531,16 @@ export default class App extends React.Component {
           <div>
         <TrackBar height={this.state.appHeight} bottom={this.state.bottom}/>
         <div className={{color:colorScheme.third}}>
-        <SlidePanel  selectProject={this.selectProject}prevPage={this.state.prevPage} page={this.state.currentPage} aboutActivated={this.state.aboutActivated}/>
+        <SlidePanel  projectLock={this.state.projectLock} selectProject={this.selectProject}prevPage={this.state.prevPage} page={this.state.currentPage} aboutActivated={this.state.aboutActivated}/>
 
-        <div className = 'HomePage' ref={this.homeRef} style={{height: '1a00vh'}}>
+        <div className = 'HomePage' ref={this.homeRef} >
          <Home toggle={this.activatePanel} about={this.state.aboutActivated} page={this.state.currentPage}  getStarted={this.getStarted}/>
         </div>
-        <div className='ProjectsPage' ref={this.projectsRef} style={{height: '90vh'}}>
-        <Projects projectSelection={this.state.projectSelection}  page={this.state.currentPage} about={this.state.aboutActivated}/>
+        <div className='ProjectsPage' ref={this.projectsRef} >
+        <Projects projectTop={this.getStarted} register={this.registerLock} projectSelection={this.state.projectSelection}  gitLink={this.state.gitLink} page={this.state.currentPage} about={this.state.aboutActivated}/>
         </div>
-        <div className = 'GalleryPage' ref={this.galleryRef} style={{height: '90vh'}}>
-          <Gallery page={this.state.currentPage}/>
+        <div className = 'GalleryPage' ref={this.galleryRef} >
+          <Gallery/>
          </div>
          <div className = 'AboutPage' ref={this.aboutRef} style={{height: '90vh'}}>
          <About/>

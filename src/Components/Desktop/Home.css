@@ -1,5 +1,5 @@
 .background{
-  background-image:url(../../Images/IMG_0521.JPG);
+  /* background-image:url(../../Images/IMG_0521.JPG); */
   height: 100%;
   width: 100%;
   background-size: cover;
@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 .foreground{
-  background-image:url(../../Images/IMG_0521.JPG);
+  /* background-image:url(../../Images/IMG_0521.JPG); */
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;

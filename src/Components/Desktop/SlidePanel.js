@@ -1,13 +1,21 @@
 import React from 'react';
-// import {colorScheme} from "../ColorScheme.js"
+import { colorScheme } from '../../ColorScheme';
 import './SlidePanel.css';
-import Profile from '../../Images/test.png'
 
 function timeout(delay: number) {
     return new Promise( res => setTimeout(res, delay) );
 }
 
-const projectTitle = ['First Project','Second Project','Third Project']
+const projectTitle = ['Alfred the Botler','Tic Tac Toe AI','Plotscript', 'MNIST Neural Network']
+const gitLinks = ['https://github.com/abbym1/ECE4534_T8','','','']
+const centering = {
+  display:'inline-block',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  position:'relative',
+  width:'100%'
+}
 
 export default class SlidePanel extends React.Component {
   constructor(props) {
@@ -76,6 +84,10 @@ processState = async () => {
   }
 }
 
+setLock = (lock) => {
+  console.log(lock);
+  // this.props.setLock(lock)
+}
 determineContent = () => {
   if(this.props.page === 'HomePage'){
     return(
@@ -84,20 +96,21 @@ determineContent = () => {
   }
   else if(this.props.page === 'ProjectsPage'){
     return(
-      <div style={{textAlign:'left',marginLeft:'2vw',marginTop:'7vh'}}>
-        <div style={{fontSize:'1.5em'}}>
+      <div style={{textAlign:'left',marginTop:'7vh'}}>
+        <div style={{fontSize:'1.5em',marginLeft:'2vw'}}>
           Project Menu
         </div>
-        <ul style={{marginTop:'7vh'}}>
+        
+        <div style={{marginTop:'7vh',padding:'0',borderTop:'1px solid'+colorScheme.third,borderBottom:'1px solid'+colorScheme.third}}>
         {projectTitle.map((project,index) => this.createListElement(project,index))}
-        </ul>
+        </div>
       </div>
     )
   }
 }
 selectProject = (index) => {
   if(this.state.selection !== index){
-    this.props.selectProject(index)
+    this.props.selectProject(index,gitLinks[index])
     let listItem = document.querySelector("#is"+index);
     listItem.style.animation = "hoverProject 0.2s"
     listItem.style.animationFillMode ='forwards'
@@ -111,12 +124,14 @@ selectProject = (index) => {
 }
 createListElement = (project,index) =>{
   return(
-    <li key={index} id={"is"+index} style={{marginTop:'3vh',cursor:'pointer',animationFillMode:'forwards',fontSize:'1em',marginLeft:'0vw'}} onClick={()=>this.selectProject(index)}
-    onMouseEnter={this.shiftRight.bind(this,index)}
-    onMouseLeave={this.shiftLeft.bind(this,index)}
+    <div key={index}  className='btnSlide' style={{cursor:'pointer',animationFillMode:'forwards',fontSize:'1em', width:'100%', height:'8vh'}} onClick={()=>this.selectProject(index)}
+    //onMouseEnter={this.shiftRight.bind(this,index)}
+    //onMouseLeave={this.shiftLeft.bind(this,index)}
     >
+      <div id={"is"+index} style={{...centering,paddingLeft:'8vw'}}>
     {project}
-    </li>
+    </div>
+    </div>
   )
 }
 shiftRight(id,e){

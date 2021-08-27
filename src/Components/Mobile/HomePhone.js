@@ -1,25 +1,7 @@
 import React from 'react';
 import {colorScheme} from "../../ColorScheme.js"
 import '../Desktop//Home.css'
-import Profile from '../../Images/test.png'
 
-const mainStyle = {
-  cursor:'pointer',
-  width:'100%',
-  height:'100%',
-  textAlign:'center',
-  position:'relative',
-  overflow: 'hidden',
-  zIndex:'1'
-}
-const centering = {
-  display:'inline-block',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  position:'absolute',
-  width:'100%'
-}
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -185,10 +167,8 @@ export default class Home extends React.Component {
   }
 }
   render() {
-    let margin = this.state.width / 10
-    let imgSize = (this.state.width / 5).toString()
       return (
-        <div className="HomeSection" style={{width:'100%',height:'90vh',position: 'fixed', top: '15vh',color:colorScheme.second}} >
+        <div className="HomeSection" style={{width:'100%',height:'100%',color:colorScheme.second}} >
           <div style={{height:'90vh',overflow:'hidden'}}>
               <div className="HomeHeader"style={{ animationFillMode:'forwards',display:'inline-block',float:'left'}}>
                 <div style={{display:'flex',height:'90vh'}}>

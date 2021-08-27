@@ -1,22 +1,135 @@
 
-@keyframes slideLeft {
-    from {
-        width:80%;
-        margin-left: 20%;
-    }
-    to {
-        width:100%;
-        margin-left: 0%;
-    }
 
+.GalleryImage {
+/* 
+    height: 90vh;
+    width: 100vw; */
+    background-size: cover;
+  
+    background-position: center;
+    background-repeat: no-repeat;
+
+  }
+
+  .GalleryIntroShade{
+    background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 100%);
+  }
+
+/* .rightImg {
+    position:absolute;
+    height: 90vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
-@keyframes slideRight {
-    from {
-        width:100%;
-        margin-left: 0%;
+.leftImg {
+
+    background-repeat: no-repea    position:absolute;
+    height: 90vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;t;
+}   
+.mainImg {
+    height: 90vh;
+    width: 100vw;
+    background-size: cover;
+    position:absolute;
+
+    background-position: center;
+    background-repeat: no-repeat;
+} */
+
+
+@keyframes slideImgRight {
+    from{
+        left:-100%;
     }
     to {
-        width:80%;
-        padding-left: 15%;
+        left: 0%;
+    }
+}
+
+@keyframes slideRightMain {
+    from{
+        left:0%;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes slideImgLeft {
+    from{
+        left:100%;
+    }
+    to {
+        left: 0%;
+    }
+}
+
+@keyframes slideLeftMain {
+    from{
+        left:0%;
+    }
+    to {
+        left: -100%;
+    }
+}
+
+@keyframes removeIntro {
+    0% {
+        width: 25vw;
+    }
+    100% {
+        width: 0vw;
+    }
+}
+
+@keyframes addIntro
+{
+    0% {
+        width: 0vw;
+    }
+    100% {
+        width: 25vw;
+    }
+}
+
+@keyframes scroll-right
+{
+    0% {
+        left: 0%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+@keyframes scroll-left
+{
+    0% {
+        right: 0%;
+    }
+    100% {
+        right: 100%;
+    }
+}
+@keyframes scroll-up
+{
+    0% {
+        bottom: 0%;
+    }
+    100% {
+        bottom: 100%;
+    }
+}
+@keyframes scroll-down
+{
+    0% {
+        top: 0%;
+    }
+    100% {
+        top: 100%;
     }
 }
