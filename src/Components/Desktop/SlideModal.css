@@ -1,9 +1,9 @@
 @keyframes slideModal {
 	    from {top:-15vh}
-			to {top:3vw}
+			to {top:2vw}
     }
 @keyframes closeSlideModal {
-	    from {top:3vh}
+	    from {top:2vh}
 			to {top:-15vw}
     }
 .SlideModal{

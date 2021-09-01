@@ -34,7 +34,7 @@ export default class App extends React.Component {
       page: "Home",
       img:'0',
       heart:HeartWhite,
-      modal: false,
+      modal: true,
       currentPage: '',
       prevPage: '',
       aboutActivated: false,
@@ -256,10 +256,11 @@ export default class App extends React.Component {
 
     }
     else{
-      if(!this.state.modal){
+      if(this.state.modal){
         let modal = document.querySelector('.SlideModal')
         modal.style.animation = 'slideModal 0.5s'
         modal.style.animationFillMode = 'forwards'
+        this.setState({modal:false})
       }
       item.style.animation = 'growHeart 0.5s'
       cookies.set("img", this.state.img);

@@ -2,6 +2,7 @@ import React from 'react';
 import "./Gallery.css"
 import {colorScheme} from "../../ColorScheme.js"
 import './SlideModal.css';
+import CloseIcon from '../../Images/CloseIcon.png'
 
 const mainStyle = {
   width:'100%',
@@ -14,19 +15,21 @@ const centering = {
   display:'inline-block',
   // top: '50%',
   left: '50%',
-  transform: 'translate(-51.3%, -50%)',
+  transform: 'translate(-55%, -50%)',
   position:'absolute',
   width:'100%'
 }
 const centeringText = {
-  display:'inline-block',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  position:'absolute',
-  width:'100%',
-  textAlign: 'center'
-}
+  // display:'inline-block',
+  // top: '50%',
+  // left: '50%',
+  // transform: 'translate(-50%, -50%)',
+  marginTop: '3vh',
+  marginLeft: '3vh',
+  paddingRight: '3vh',
+  position:'relative',
+  width:'90%',
+  textAlign: 'left'}
 
 export default class Card extends React.Component {
   constructor(props) {
@@ -56,7 +59,7 @@ closeModal = () => {
 render() {
 
     return (
-        <div className="SlideModal" style={{opacity:'0.8',zIndex:'5',...mainStyle, ...centering, textAlign:'left',position:'absolute',top:'-15vh',width:'70vw',height:'7vh', backgroundColor:colorScheme.third, fontSize:'0.6em', margin:'1vw', borderRadius:'5px'}}
+        <div className="SlideModal" style={{cursor:'pointer',opacity:'0.85',zIndex:'5',...mainStyle, ...centering, textAlign:'left',position:'absolute',top:'-15vh',width:'70vw',height:'12vh', backgroundColor:colorScheme.third, fontSize:'0.7em', margin:'3vw', borderRadius:'5px'}}
         onClick={()=>this.closeModal()}
         >
         <div style={{ ...centeringText}}>
@@ -64,8 +67,15 @@ render() {
             <a
             style={{color:colorScheme.fourth}}
             href="https://www.dummies.com/education/internet-basics/defining-and-dealing-with-web-cookies/" target="_blank" rel="noopener noreferrer"
-            >cookies</a> to improve your experience. If you do not want to use cookies, just unsave the this image
+            >cookies</a>. Cookies allow us to store your customizations and improve your experience. If you do not want to use cookies, just unsave the this image
+
         </div>
+        <img className="Icon-Image" src={CloseIcon} alt='placeholder' width="40" height="40"
+        style={{
+          position: 'absolute',
+          right:'2vh',
+          top:'2vh'
+        }}/>
         </div>
     );
   }
