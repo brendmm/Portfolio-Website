@@ -1,11 +1,27 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+@-webkit-keyframes slideModal {
+	from {top:-15vh}
+		to {top:2vw}
+}
 @keyframes slideModal {
-	    from {top:-15vh}
-			to {top:2vw}
-    }
+	from {top:-15vh}
+		to {top:2vw}
+}
+@-webkit-keyframes closeSlideModal {
+	from {top:2vh}
+		to {top:-15vw}
+}
 @keyframes closeSlideModal {
-	    from {top:2vh}
-			to {top:-15vw}
-    }
+	from {top:2vh}
+		to {top:-15vw}
+}
 .SlideModal{
-	animation-fill-mode: forwards;
+-webkit-animation-fill-mode: forwards;
+		animation-fill-mode: forwards;
 }

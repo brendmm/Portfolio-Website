@@ -1,135 +1,237 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 
 
 .GalleryImage {
-/* 
-    height: 90vh;
-    width: 100vw; */
-    background-size: cover;
-  
-    background-position: center;
-    background-repeat: no-repeat;
-
-  }
-
-  .GalleryIntroShade{
-    background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 100%);
-  }
-
-/* .rightImg {
-    position:absolute;
-    height: 90vh;
-    width: 100vw;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-.leftImg {
-
-    background-repeat: no-repea    position:absolute;
-    height: 90vh;
-    width: 100vw;
-    background-size: cover;
-    background-position: center;t;
-}   
-.mainImg {
-    height: 90vh;
-    width: 100vw;
-    background-size: cover;
-    position:absolute;
-
-    background-position: center;
-    background-repeat: no-repeat;
-} */
-
-
-@keyframes slideImgRight {
-    from{
-        left:-100%;
+    /* 
+        height: 90vh;
+        width: 100vw; */
+        background-size: cover;
+      
+        background-position: center;
+        background-repeat: no-repeat;
+    
+      }
+    
+      .GalleryIntroShade{
+        background: -webkit-gradient(linear, left top, right top, from(rgba(0,0,0,0.75)), to(rgba(0,0,0,0.5)));
+        background: -o-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 100%);
+        background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 100%);
+      }
+    
+    /* .rightImg {
+        position:absolute;
+        height: 90vh;
+        width: 100vw;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
-    to {
-        left: 0%;
+    .leftImg {
+    
+        background-repeat: no-repea    position:absolute;
+        height: 90vh;
+        width: 100vw;
+        background-size: cover;
+        background-position: center;t;
+    }   
+    .mainImg {
+        height: 90vh;
+        width: 100vw;
+        background-size: cover;
+        position:absolute;
+    
+        background-position: center;
+        background-repeat: no-repeat;
+    } */
+    
+    
+    @-webkit-keyframes slideImgRight {
+        from{
+            left:-100%;
+        }
+        to {
+            left: 0%;
+        }
     }
-}
-
-@keyframes slideRightMain {
-    from{
-        left:0%;
+    
+    
+    @keyframes slideImgRight {
+        from{
+            left:-100%;
+        }
+        to {
+            left: 0%;
+        }
     }
-    to {
-        left: 100%;
+    
+    @-webkit-keyframes slideRightMain {
+        from{
+            left:0%;
+        }
+        to {
+            left: 100%;
+        }
     }
-}
-
-@keyframes slideImgLeft {
-    from{
-        left:100%;
+    
+    @keyframes slideRightMain {
+        from{
+            left:0%;
+        }
+        to {
+            left: 100%;
+        }
     }
-    to {
-        left: 0%;
+    
+    @-webkit-keyframes slideImgLeft {
+        from{
+            left:100%;
+        }
+        to {
+            left: 0%;
+        }
     }
-}
-
-@keyframes slideLeftMain {
-    from{
-        left:0%;
+    
+    @keyframes slideImgLeft {
+        from{
+            left:100%;
+        }
+        to {
+            left: 0%;
+        }
     }
-    to {
-        left: -100%;
+    
+    @-webkit-keyframes slideLeftMain {
+        from{
+            left:0%;
+        }
+        to {
+            left: -100%;
+        }
     }
-}
-
-@keyframes removeIntro {
-    0% {
-        width: 25vw;
+    
+    @keyframes slideLeftMain {
+        from{
+            left:0%;
+        }
+        to {
+            left: -100%;
+        }
     }
-    100% {
-        width: 0vw;
+    
+    @-webkit-keyframes removeIntro {
+        0% {
+            width: 25vw;
+        }
+        100% {
+            width: 0vw;
+        }
     }
-}
-
-@keyframes addIntro
-{
-    0% {
-        width: 0vw;
+    
+    @keyframes removeIntro {
+        0% {
+            width: 25vw;
+        }
+        100% {
+            width: 0vw;
+        }
     }
-    100% {
-        width: 25vw;
+    
+    @-webkit-keyframes addIntro
+    {
+        0% {
+            width: 0vw;
+        }
+        100% {
+            width: 25vw;
+        }
     }
-}
-
-@keyframes scroll-right
-{
-    0% {
-        left: 0%;
+    
+    @keyframes addIntro
+    {
+        0% {
+            width: 0vw;
+        }
+        100% {
+            width: 25vw;
+        }
     }
-    100% {
-        left: 100%;
+    
+    @-webkit-keyframes scroll-right
+    {
+        0% {
+            left: 0%;
+        }
+        100% {
+            left: 100%;
+        }
     }
-}
-@keyframes scroll-left
-{
-    0% {
-        right: 0%;
+    
+    @keyframes scroll-right
+    {
+        0% {
+            left: 0%;
+        }
+        100% {
+            left: 100%;
+        }
     }
-    100% {
-        right: 100%;
+    @-webkit-keyframes scroll-left
+    {
+        0% {
+            right: 0%;
+        }
+        100% {
+            right: 100%;
+        }
     }
-}
-@keyframes scroll-up
-{
-    0% {
-        bottom: 0%;
+    @keyframes scroll-left
+    {
+        0% {
+            right: 0%;
+        }
+        100% {
+            right: 100%;
+        }
     }
-    100% {
-        bottom: 100%;
+    @-webkit-keyframes scroll-up
+    {
+        0% {
+            bottom: 0%;
+        }
+        100% {
+            bottom: 100%;
+        }
     }
-}
-@keyframes scroll-down
-{
-    0% {
-        top: 0%;
+    @keyframes scroll-up
+    {
+        0% {
+            bottom: 0%;
+        }
+        100% {
+            bottom: 100%;
+        }
     }
-    100% {
-        top: 100%;
+    @-webkit-keyframes scroll-down
+    {
+        0% {
+            top: 0%;
+        }
+        100% {
+            top: 100%;
+        }
     }
-}
+    @keyframes scroll-down
+    {
+        0% {
+            top: 0%;
+        }
+        100% {
+            top: 100%;
+        }
+    }
