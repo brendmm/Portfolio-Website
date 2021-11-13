@@ -1,17 +1,3 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.3.6,
-* Autoprefixer: v10.3.1
-* Browsers: last 4 version
-*/
-
-/* :root {
-  --firstColor: #E3DBDB;
-	--secondColor: #6184D8;
-	--thirdColor: #337357;
-	--fourthColor: #2E2D4D;
-} */
-
 :root {
 	--firstColor: #eee9e5;
 	  --secondColor: #506868;
@@ -21,6 +7,8 @@
   
   .App {
 	text-align: center;
+	background-color:var(--firstColor);
+	color:var(--firstColor);
   }
   
   .App-header {
@@ -55,7 +43,7 @@
   
 	background-position: center;
 	background-repeat: no-repeat;
-	  font-family: Abel, sans-serif;
+	font-family: Abel, sans-serif;
   
   }
   
@@ -70,21 +58,21 @@
   }
   
   @-webkit-keyframes fade-color {
-	  from {background-color:#000000;opacity: 0%}
-			  to {background-color:var(--thirdColor);opacity: 100%}
+	  from {background-color:#000000; opacity: 0}
+	  to {background-color:var(--thirdColor); opacity: 1}
 	  }
   
   @keyframes fade-color {
-	  from {background-color:#000000;opacity: 0%}
-			  to {background-color:var(--thirdColor);opacity: 100%}
+	  from {background-color:#000000; opacity: 0}
+	  to {background-color:var(--thirdColor); opacity: 1}
 	  }
   @-webkit-keyframes fade-out {
-	  from {background-color:var(--thirdColor);opacity: 100%}
-			  to {background-color:#000000;opacity: 0%}
+	  from {background-color:var(--thirdColor); opacity: 1}
+	  to {background-color:#000000; opacity: 0}
 	  }
   @keyframes fade-out {
-	  from {background-color:var(--thirdColor);opacity: 100%}
-			  to {background-color:#000000;opacity: 0%}
+	  from {background-color:var(--thirdColor); opacity: 1}
+	  to {background-color:#000000; opacity: 0}
 	  }
   
   .Header-Body{
@@ -95,6 +83,11 @@
 	  left: 0;
   }
   
+  .UpperLeftIcons{
+
+	float:left;
+	text-align:left;
+  }
   .Icon-Main{
 	  /* width: 100vw; */
 	  text-align: right;
@@ -115,22 +108,31 @@
   }
   
   .Icon-Image{
-	  -webkit-transform-origin: center;
-	      -ms-transform-origin: center;
-	          transform-origin: center;
-	  cursor:pointer;
+	-webkit-transform-origin: center;
+	-ms-transform-origin: center;
+	transform-origin: center;
+	cursor:pointer;
+	
 	  /* padding-bottom: 3%; */
   }
   
   .Icon-Shuffle{
-	  display: inline-block;
-	  width: 7vw;
-	  text-align: center;
-	  margin-top: 5vh;
-	  /* opacity: 50%; */
-  cursor:pointer;
+	display: inline-block;
+	width: 7vw;
+	text-align: center;
+	margin-top: 5vh;
+	/* opacity: 50%; */
+	cursor:pointer;
+	height:5vh;
   }
-  
+  .Icon-Heart{
+	display: inline-block;
+	width: 7vw;
+	text-align: center;
+	margin-top: 5vh;
+	/* opacity: 50%; */
+	cursor:pointer;
+  }
   @-webkit-keyframes growHeart {
 		  from {
 			  /* opacity: 0; */
@@ -179,13 +181,14 @@
   }
   
   .Menu{
-	  display: inline-block;
+	display: inline-block;
 	font-size: 1.2em;
-	  position: sticky;
-	  top: 5vh;
-	  text-align:center;
-	  padding-bottom: 1vh;
-	  margin-top: 20vh;
+	position: sticky;
+	top: 5vh;
+	text-align:center;
+	padding-bottom: 1vh;
+	margin-top: 20vh;
+	color: var(--firstColor);
 	  /* margin-bottom: 10vh; */
   }
   
@@ -442,3 +445,6 @@
 		  position: relative;
   }
   
+  .AboutPage{
+	  height: 90vh;
+  }
