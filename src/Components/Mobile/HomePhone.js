@@ -168,7 +168,7 @@ export default class Home extends React.Component {
 }
   render() {
       return (
-        <div className="HomeSection" style={{width:'100%',height:'100%',color:colorScheme.second}} >
+        <div className="HomeSection" style={{width:'100%',height:'100%',color:colorScheme.second,backgroundColor:colorScheme.first}} >
           <div style={{height:'90vh',overflow:'hidden'}}>
               <div className="HomeHeader"style={{ animationFillMode:'forwards',display:'inline-block',float:'left'}}>
                 <div style={{display:'flex',height:'90vh'}}>
